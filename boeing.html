@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Hessem Gutierrez's Boeing systems engineering internship case study." />
+    <title>Unmanned Mars Mining Mission | Hessem Gutierrez</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+      :root{--ink:#0b1b2e;--muted:#60717b;--paper:#f4f1e9;--blue:#0759d9;--cyan:#1bd0e6;--orange:#e8774f;--line:rgba(11,27,46,.18)}
+      *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,Arial,sans-serif}body:before{content:"";position:fixed;inset:0;z-index:-1;opacity:.3;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(to bottom,black,transparent 82%)}a{color:inherit;text-decoration:none}.mono{font-family:"DM Mono",monospace;letter-spacing:.04em}
+      nav{height:77px;padding:0 clamp(20px,5vw,84px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.mark{display:flex;align-items:center;gap:11px;font-size:12px;font-weight:800;letter-spacing:.1em}.mark-icon{width:31px;height:31px;border:2px solid var(--ink);display:grid;place-items:center;transform:rotate(45deg)}.mark-icon i{width:10px;height:10px;background:var(--blue);display:block}.back{font:11px "DM Mono",monospace;padding:10px 12px;border:1px solid var(--ink);transition:.2s}.back:hover{background:var(--ink);color:var(--paper)}
+      .hero{padding:clamp(54px,8vw,112px) clamp(20px,8vw,128px) 75px;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(30px,7vw,112px);align-items:center}.eyebrow{margin:0 0 18px;color:var(--blue);font:11px "DM Mono",monospace;letter-spacing:.12em}h1{margin:0;font-size:clamp(48px,6.7vw,94px);line-height:.93;letter-spacing:-.04em;max-width:780px}.lede{max-width:680px;margin:30px 0 0;font-size:18px;line-height:1.7;color:#3b505a}.cover{aspect-ratio:1;display:grid;place-items:center;background:#062a75;border:1px solid var(--ink);overflow:hidden}.cover img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;transform:none}
+      .facts{padding:0 clamp(20px,8vw,128px) 92px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}.fact{padding:19px 20px 4px 0}.fact b{display:block;font-size:20px;line-height:1.15;letter-spacing:-.04em}.fact span{display:block;margin-top:6px;font:9px "DM Mono",monospace;color:var(--muted);letter-spacing:.07em}
+      .section{padding:88px clamp(20px,8vw,128px)}.section-dark{background:var(--ink);color:var(--paper)}.overview{display:grid;grid-template-columns:.74fr 1.26fr;gap:clamp(35px,9vw,150px);border-top:1px solid var(--ink);padding-top:31px}.section-title{font-size:clamp(34px,4.6vw,60px);line-height:.97;letter-spacing:-.055em;margin:0}.body-copy{margin:0;max-width:780px;color:#3b505a;font-size:17px;line-height:1.76}.body-copy+.body-copy{margin-top:18px}
+      .phase-intro{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:46px}.phase-intro p:last-child{max-width:590px;margin:0;color:#c6d2dc;font-size:15px;line-height:1.7}.phases{display:grid;gap:70px}.phase{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,90px);align-items:center}.phase:nth-child(even) .phase-media{order:2}.phase-no{font:11px "DM Mono",monospace;color:var(--cyan);letter-spacing:.1em}.phase h3{margin:14px 0 18px;font-size:clamp(29px,3.8vw,48px);line-height:1;letter-spacing:-.05em}.phase p{margin:0;color:#c6d2dc;font-size:16px;line-height:1.74}.phase-media{min-height:350px;border:1px solid rgba(244,241,233,.35);background:#030b18;display:grid;place-items:center;overflow:hidden}.phase-media img{display:block;width:100%;height:100%;max-height:520px;object-fit:contain;object-position:center}
+      .phase-four{border-top:1px solid rgba(244,241,233,.35);padding-top:42px}.phase-four-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(35px,8vw,120px)}.outputs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(244,241,233,.35);border-left:1px solid rgba(244,241,233,.35)}.output{padding:22px;min-height:165px;border-right:1px solid rgba(244,241,233,.35);border-bottom:1px solid rgba(244,241,233,.35)}.output b{display:block;font-size:16px}.output span{display:block;margin-top:12px;color:#c6d2dc;font-size:12px;line-height:1.55}
+      .analysis-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink);margin-top:42px}.analysis-card{padding:25px;min-height:230px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}.analysis-card:nth-child(2){background:#c4e3ff}.analysis-card:nth-child(3){background:#c6eee9}.analysis-card h3{margin:42px 0 12px;font-size:22px;letter-spacing:-.04em}.analysis-card p{margin:0;color:#3b505a;font-size:14px;line-height:1.68}
+      .tool-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(35px,9vw,150px);align-items:start}.tool-copy{margin:20px 0 0;color:#c6d2dc;font-size:16px;line-height:1.72}.tools{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(244,241,233,.36);border-left:1px solid rgba(244,241,233,.36)}.tool{padding:23px;border-right:1px solid rgba(244,241,233,.36);border-bottom:1px solid rgba(244,241,233,.36)}.tool b{font-size:16px}.tool span{display:block;margin-top:8px;color:#c6d2dc;font-size:12px;line-height:1.55}
+      @media(max-width:800px){.hero,.overview,.phase,.phase-four-grid,.tool-layout{grid-template-columns:1fr}.cover{max-width:520px}.facts{grid-template-columns:1fr 1fr;padding-bottom:62px}.phase:nth-child(even) .phase-media{order:0}.phase-media{min-height:250px}.phase-intro{align-items:start;flex-direction:column}.outputs,.analysis-grid,.tools{grid-template-columns:1fr}.section{padding-top:64px;padding-bottom:64px}.mark{font-size:10px}.back{font-size:9px}}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="mark" href="index.html"><span class="mark-icon"><i></i></span> HESSEM GUTIERREZ <span class="mono" style="font-weight:400">/ ME</span></a>
+      <a class="back" href="index.html#work">← BACK TO WORK</a>
+    </nav>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">INDUSTRY EXPERIENCE / BOEING</p>
+          <h1>Unmanned Mars<br>Mining Mission</h1>
+          <p class="lede">During my eight-week Systems Engineering internship at Boeing, I developed a simulation concept for an unmanned mission to locate and extract near-surface natural resources on Mars using Ansys Systems Tool Kit.</p>
+        </div>
+        <div class="cover"><img src="boeing-logo.png" alt="Boeing logo" /></div>
+      </section>
+
+      <div class="facts">
+        <div class="fact"><b>Summer 2022</b><span>INTERNSHIP TERM</span></div>
+        <div class="fact"><b>8 weeks</b><span>PROJECT DURATION</span></div>
+        <div class="fact"><b>Systems Engineering</b><span>PRIMARY ROLE</span></div>
+        <div class="fact"><b>Ansys STK</b><span>SIMULATION PLATFORM</span></div>
+      </div>
+
+      <section class="section">
+        <div class="overview">
+          <div><p class="eyebrow">THE PROJECT</p><h2 class="section-title">From mission<br>scope to results</h2></div>
+          <div>
+            <p class="body-copy">My main responsibility was to complete an end-to-end systems project over the course of the internship. I developed a simulated architecture for an unmanned mining mission to Mars, with the objective of locating natural resources near the planet's surface and evaluating how multiple detection strategies performed.</p>
+            <p class="body-copy">I organized the work into four phases: project and scope definition, system architecture development, simulation and data collection, and data consolidation. This structure gave me a clear path from an open-ended mission concept to a final comparison that I could communicate to Boeing engineers, fellow interns, and my mentor.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="phase-intro">
+          <div><p class="eyebrow">PROJECT DEVELOPMENT</p><h2 class="section-title">Four phases<br>one mission</h2></div>
+          <p>Each phase narrowed the problem, developed the system, and converted simulation output into a useful engineering comparison.</p>
+        </div>
+        <div class="phases">
+          <article class="phase">
+            <div class="phase-media"><img src="boeing-phase-1.png" alt="Mars viewed against space" /></div>
+            <div><span class="phase-no">PHASE 01</span><h3>Project and scope definition</h3><p>I began by defining the mission boundary and the specific problem the system needed to address: an unmanned mission capable of locating and supporting the extraction of near-surface natural resources on Mars. The concept phase was intentionally broad, with few budget constraints and substantial freedom in how the architecture could be developed. That freedom allowed me to explore the problem at the system level before narrowing the design space.</p></div>
+          </article>
+
+          <article class="phase">
+            <div class="phase-media"><img src="boeing-phase-2.png" alt="A rover operating on the surface of Mars" /></div>
+            <div><span class="phase-no">PHASE 02</span><h3>System architecture development</h3><p>I researched satellites, sensors, UAVs, rovers, mining equipment, and other supporting vehicles and systems. I then defined a test region on Mars and developed three candidate architectures that used different combinations of those assets to detect resources beneath the surface. This phase connected individual technologies to the mission-level functions they needed to perform.</p></div>
+          </article>
+
+          <article class="phase">
+            <div class="phase-media"><img src="boeing-phase-3.png" alt="Systems Tool Kit orbital and coverage visualization" /></div>
+            <div><span class="phase-no">PHASE 03</span><h3>Simulation and data collection</h3><p>I built three configurations combining satellites, rovers, and UAVs. The concepts varied in equipment count, cost, search-pattern complexity, and collection frequency. I also developed a cost comparison that considered fuel, transportation, repairs, and equipment. After defining the architectures, I ran repeated simulations in Ansys STK and randomized the locations of the subsurface resources to create different search conditions for each run.</p></div>
+          </article>
+
+          <article class="phase-four">
+            <div class="phase-four-grid">
+              <div><span class="phase-no">PHASE 04</span><h3>Data consolidation and presentation</h3></div>
+              <p>I consolidated the simulation results into clear charts that compared all three configurations across cost, resource-location efficiency, and feasibility. I then assembled the project into a final presentation and communicated my findings to Boeing engineers, other interns, and my mentor.</p>
+            </div>
+            <div class="outputs">
+              <div class="output"><b>Cost</b><span>Compared fuel, transportation, repair, and equipment requirements across the three concepts.</span></div>
+              <div class="output"><b>Search efficiency</b><span>Evaluated how effectively each configuration located randomized near-surface resource targets.</span></div>
+              <div class="output"><b>Feasibility</b><span>Considered the practical complexity and mission value of each proposed architecture.</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">ENGINEERING APPROACH</p>
+        <h2 class="section-title">How I compared<br>the configurations</h2>
+        <div class="analysis-grid">
+          <article class="analysis-card"><h3>Architecture</h3><p>Combined orbital and surface assets into three distinct concepts, then mapped each asset to the sensing and search functions required by the mission.</p></article>
+          <article class="analysis-card"><h3>Simulation</h3><p>Used repeatable STK scenarios with randomized resource locations to observe how each configuration responded to changing search conditions.</p></article>
+          <article class="analysis-card"><h3>Trade study</h3><p>Brought cost, efficiency, and feasibility into one comparison so the strengths and limitations of each system concept could be communicated clearly.</p></article>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="tool-layout">
+          <div><p class="eyebrow">TOOLS &amp; SYSTEMS</p><h2 class="section-title">The tools<br>I used</h2><p class="tool-copy">The project combined mission simulation, day-to-day analysis, and independent concept modeling to move from early research to a presentation-ready system comparison.</p></div>
+          <div class="tools">
+            <div class="tool"><b>Ansys Systems Tool Kit</b><span>Primary environment for building the Mars mission scenarios, simulating the three configurations, and collecting performance data.</span></div>
+            <div class="tool"><b>Microsoft Suite</b><span>Used for day-to-day project work, organizing analysis, developing charts, and preparing the final presentation.</span></div>
+            <div class="tool"><b>Onshape</b><span>Used independently to model and visualize selected pieces of equipment while developing the system architecture.</span></div>
+            <div class="tool"><b>Systems thinking</b><span>Applied to translate an open-ended mission into requirements, candidate architectures, measurable comparisons, and a final recommendation framework.</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

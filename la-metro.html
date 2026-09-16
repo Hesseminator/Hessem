@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Hessem Gutierrez's LA Metro green smart city research case study." />
+    <title>Green Smart City Research | Hessem Gutierrez</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+      :root{--ink:#112222;--muted:#607170;--paper:#f4f1e9;--green:#b8dc73;--mint:#c9eadf;--yellow:#f0c94f;--orange:#f06137;--line:rgba(17,34,34,.17)}
+      *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,Arial,sans-serif}body:before{content:"";position:fixed;inset:0;z-index:-1;opacity:.3;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(to bottom,black,transparent 82%)}a{color:inherit;text-decoration:none}.mono{font-family:"DM Mono",monospace;letter-spacing:.04em}
+      nav{height:77px;padding:0 clamp(20px,5vw,84px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.mark{display:flex;align-items:center;gap:11px;font-size:12px;font-weight:800;letter-spacing:.1em}.mark-icon{width:31px;height:31px;border:2px solid var(--ink);display:grid;place-items:center;transform:rotate(45deg)}.mark-icon i{width:10px;height:10px;background:var(--green);display:block}.back{font:11px "DM Mono",monospace;padding:10px 12px;border:1px solid var(--ink);transition:.2s}.back:hover{background:var(--ink);color:var(--paper)}
+      .hero{padding:clamp(54px,8vw,112px) clamp(20px,8vw,128px) 75px;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(30px,7vw,112px);align-items:center}.eyebrow{margin:0 0 18px;color:#558414;font:11px "DM Mono",monospace;letter-spacing:.12em}h1{margin:0;font-size:clamp(48px,6.7vw,94px);line-height:.93;letter-spacing:-.04em;max-width:780px}.lede{max-width:680px;margin:30px 0 0;font-size:18px;line-height:1.7;color:#3b514e}.cover{aspect-ratio:1;display:grid;place-items:center;background:#000;border:1px solid var(--ink);overflow:hidden}.cover img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;transform:none}
+      .facts{padding:0 clamp(20px,8vw,128px) 92px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}.fact{padding:19px 20px 4px 0}.fact b{display:block;font-size:20px;line-height:1.15;letter-spacing:-.04em}.fact span{display:block;margin-top:6px;font:9px "DM Mono",monospace;color:var(--muted);letter-spacing:.07em}
+      .section{padding:88px clamp(20px,8vw,128px)}.section-dark{background:var(--ink);color:var(--paper)}.overview{display:grid;grid-template-columns:.74fr 1.26fr;gap:clamp(35px,9vw,150px);border-top:1px solid var(--ink);padding-top:31px}.section-title{font-size:clamp(34px,4.6vw,60px);line-height:.97;letter-spacing:-.055em;margin:0}.body-copy{margin:0;max-width:780px;color:#3b514e;font-size:17px;line-height:1.76}.body-copy+.body-copy{margin-top:18px}
+      .research-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink);margin-top:42px}.research-card{padding:25px;min-height:250px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}.research-card:nth-child(2){background:var(--mint)}.research-card:nth-child(3){background:var(--green)}.research-card h3{margin:42px 0 12px;font-size:22px;letter-spacing:-.04em}.research-card p{margin:0;color:#3b514e;font-size:14px;line-height:1.68}
+      .metrics-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(35px,9vw,150px);align-items:end;margin-bottom:42px}.metrics-head p{margin:0;color:#c5d1cf;font-size:16px;line-height:1.72}.metrics{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(244,241,233,.35);border-left:1px solid rgba(244,241,233,.35)}.metric{padding:26px;min-height:250px;border-right:1px solid rgba(244,241,233,.35);border-bottom:1px solid rgba(244,241,233,.35)}.metric strong{display:block;color:var(--green);font-size:clamp(42px,5vw,68px);line-height:1;letter-spacing:-.06em}.metric h3{margin:23px 0 10px;font-size:18px}.metric p{margin:0;color:#c5d1cf;font-size:13px;line-height:1.62}
+      .model-wrap{display:grid;grid-template-columns:.74fr 1.26fr;gap:clamp(35px,7vw,100px);align-items:start}.model-copy{position:sticky;top:35px}.model-copy p:last-child{margin:24px 0 0;color:#3b514e;font-size:16px;line-height:1.74}.model-image{margin:0;min-height:720px;border:1px solid var(--ink);background:#d8d8d2;display:grid;place-items:center;overflow:hidden}.model-image img{display:block;width:100%;height:100%;max-height:980px;object-fit:contain;object-position:center}
+      .design-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(244,241,233,.35);border-left:1px solid rgba(244,241,233,.35);margin-top:42px}.design-item{padding:23px;min-height:215px;border-right:1px solid rgba(244,241,233,.35);border-bottom:1px solid rgba(244,241,233,.35)}.design-item span{font:10px "DM Mono",monospace;color:var(--green)}.design-item h3{margin:38px 0 11px;font-size:19px}.design-item p{margin:0;color:#c5d1cf;font-size:12px;line-height:1.6}
+      .presentation{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(35px,9vw,150px);border-top:1px solid var(--ink);padding-top:31px}.presentation-copy{font-size:17px;line-height:1.76;color:#3b514e;margin:0}.presentation-copy+.presentation-copy{margin-top:18px}.role-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px}.role-tag{padding:11px 13px;border:1px solid var(--line);font:10px "DM Mono",monospace;background:rgba(255,255,255,.25)}
+      .tool-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(35px,9vw,150px);align-items:start}.tool-copy{margin:20px 0 0;color:#c5d1cf;font-size:16px;line-height:1.72}.tools{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(244,241,233,.36);border-left:1px solid rgba(244,241,233,.36)}.tool{padding:23px;border-right:1px solid rgba(244,241,233,.36);border-bottom:1px solid rgba(244,241,233,.36)}.tool b{font-size:16px}.tool span{display:block;margin-top:8px;color:#c5d1cf;font-size:12px;line-height:1.55}
+      @media(max-width:800px){.hero,.overview,.metrics-head,.model-wrap,.presentation,.tool-layout{grid-template-columns:1fr}.cover{max-width:520px}.facts{grid-template-columns:1fr 1fr;padding-bottom:62px}.research-grid,.metrics,.design-grid,.tools{grid-template-columns:1fr}.model-copy{position:static}.model-image{min-height:520px}.section{padding-top:64px;padding-bottom:64px}.mark{font-size:10px}.back{font-size:9px}}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="mark" href="index.html"><span class="mark-icon"><i></i></span> HESSEM GUTIERREZ <span class="mono" style="font-weight:400">/ ME</span></a>
+      <a class="back" href="index.html#work">← BACK TO WORK</a>
+    </nav>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">RESEARCH / LA METRO</p>
+          <h1>Green Smart<br>City Research</h1>
+          <p class="lede">During my eight-week LA Metro internship, I worked as a Researcher and Team Representative on a team tasked with designing and developing an entire green smart city.</p>
+        </div>
+        <div class="cover"><img src="la-metro-logo.png" alt="LA Metro logo" /></div>
+      </section>
+
+      <div class="facts">
+        <div class="fact"><b>Summer 2023</b><span>INTERNSHIP TERM</span></div>
+        <div class="fact"><b>8 weeks</b><span>PROJECT DURATION</span></div>
+        <div class="fact"><b>Researcher</b><span>PRIMARY ROLE</span></div>
+        <div class="fact"><b>Team Representative</b><span>PRESENTATION ROLE</span></div>
+      </div>
+
+      <section class="section">
+        <div class="overview">
+          <div><p class="eyebrow">THE PROJECT</p><h2 class="section-title">Researching a<br>better city</h2></div>
+          <div>
+            <p class="body-copy">Our eight-week project focused on building a city model around greener infrastructure, stronger public transportation, and planning choices that could reduce traffic and transit delays. Los Angeles served as our main reference point because its transportation challenges clearly showed the effects of car-centered development.</p>
+            <p class="body-copy">As one of the team's researchers, I studied urban planning, road and highway design, public transportation methods and systems, zoning laws, and parking requirements. My goal was to connect each topic back to the way people move through a city and identify planning decisions that could create more transportation options.</p>
+          </div>
+        </div>
+
+        <div class="research-grid">
+          <article class="research-card"><h3>Urban planning</h3><p>Studied the relationship between street layout, land use, density, and daily travel. The research helped the team understand why city form has a direct effect on congestion and accessibility.</p></article>
+          <article class="research-card"><h3>Transportation systems</h3><p>Compared road networks and public transportation systems, including how route coverage, service frequency, and dedicated transit space affect whether residents can choose an alternative to driving.</p></article>
+          <article class="research-card"><h3>Zoning and parking</h3><p>Examined how separated land uses and parking minimums can spread destinations farther apart, consume valuable land, and make car travel feel necessary for even short daily trips.</p></article>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="metrics-head">
+          <div><p class="eyebrow">RESEARCH FINDINGS</p><h2 class="section-title">Evidence that shaped<br>the concept</h2></div>
+          <p>I selected the comparisons that most directly informed the model rather than treating the research as a collection of disconnected statistics.</p>
+        </div>
+        <div class="metrics">
+          <article class="metric"><strong>35 min</strong><h3>Lost each day</h3><p>Our research found that an average of about 35 minutes per day is lost waiting in traffic, showing the daily cost of a transportation system centered around cars.</p></article>
+          <article class="metric"><strong>70%</strong><h3>Short trips by car</h3><p>Our research found that 70% of Americans use a car for trips under one mile, reinforcing the need for walkable neighborhoods and useful alternatives for short travel.</p></article>
+          <article class="metric"><strong>15 min</strong><h3>LA bus comparison</h3><p>The research compared LA bus arrivals approaching 15-minute intervals with a Netherlands example where buses arrived every two to five minutes on dedicated transit space.</p></article>
+          <article class="metric"><strong>4</strong><h3>Planning priorities</h3><p>The final direction centered on mixed-use zoning, removing parking minimums, expanding transit coverage and frequency, and reducing oversized highway infrastructure.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="model-wrap">
+          <div class="model-copy">
+            <p class="eyebrow">PHYSICAL MODEL</p>
+            <h2 class="section-title">Turning research<br>into a city</h2>
+            <p>Once the research was assembled, our team built a physical model that demonstrated the planning choices we believed could reduce traffic and transit delays. The city used a circular network inspired by Amsterdam, bringing destinations closer together while creating more direct connections between neighborhoods, services, and transportation.</p>
+          </div>
+          <figure class="model-image"><img src="la-metro-city-model.jpg" alt="Physical model of the team's circular green smart city" /></figure>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <p class="eyebrow">MODEL DESIGN</p>
+        <h2 class="section-title">Planning choices made visible</h2>
+        <div class="design-grid">
+          <article class="design-item"><span>01</span><h3>Circular street network</h3><p>A connected circular layout created multiple paths across the city instead of forcing movement through a small number of major corridors.</p></article>
+          <article class="design-item"><span>02</span><h3>Mixed-use districts</h3><p>Housing, services, workplaces, recreation, and transit were placed closer together to reduce the need for long car trips.</p></article>
+          <article class="design-item"><span>03</span><h3>Public transportation</h3><p>Transit stations and routes were integrated throughout the model so public transportation functioned as part of the city rather than an addition to it.</p></article>
+          <article class="design-item"><span>04</span><h3>Green infrastructure</h3><p>Parks, planted areas, renewable-energy features, and community spaces supported the environmental goals of the smart city concept.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="presentation">
+          <div><p class="eyebrow">TEAM REPRESENTATIVE</p><h2 class="section-title">Presenting the<br>final concept</h2></div>
+          <div>
+            <p class="presentation-copy">At the end of the internship, our team presented the research findings and physical city model to city officials. As one of the team representatives, I helped communicate the transportation problems we studied, the planning choices behind our design, and the way those choices were represented in the model.</p>
+            <p class="presentation-copy">This role required me to move beyond collecting information and explain the team's work as one connected proposal. It strengthened my ability to organize technical research, speak for a collaborative project, and make complex planning ideas understandable to a broader audience.</p>
+            <div class="role-tags"><span class="role-tag">RESEARCH SYNTHESIS</span><span class="role-tag">TEAM COMMUNICATION</span><span class="role-tag">PUBLIC PRESENTATION</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="tool-layout">
+          <div><p class="eyebrow">TOOLS &amp; METHODS</p><h2 class="section-title">The tools<br>I used</h2><p class="tool-copy">The project combined written research, collaborative concept development, physical model building, and a final presentation.</p></div>
+          <div class="tools">
+            <div class="tool"><b>Microsoft Suite</b><span>Used to organize research, document findings, assemble supporting material, and prepare information for the team's final presentation.</span></div>
+            <div class="tool"><b>Research synthesis</b><span>Connected findings from urban planning, transportation, zoning, and parking into a focused set of design priorities.</span></div>
+            <div class="tool"><b>Physical modeling</b><span>Worked with the team to turn planning concepts into a tangible city model that could be reviewed and presented.</span></div>
+            <div class="tool"><b>Technical presentation</b><span>Presented the team's evidence, design decisions, and final concept to city officials as a team representative.</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

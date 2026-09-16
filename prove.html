@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Hessem Gutierrez's mechanical leadership and autonomous vehicle development work with PROVE Lab at Cal Poly." />
+    <title>PROVE Autonomous EV | Hessem Gutierrez</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+      :root{--ink:#101d24;--muted:#607075;--paper:#f4f1e9;--blue:#5b91cb;--green:#51b648;--navy:#272e6b;--aqua:#b8ded8;--line:rgba(16,29,36,.18)}
+      *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,Arial,sans-serif}body:before{content:"";position:fixed;inset:0;z-index:-1;opacity:.3;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(to bottom,black,transparent 82%)}a{color:inherit;text-decoration:none}.mono{font-family:"DM Mono",monospace;letter-spacing:.04em}
+      nav{height:77px;padding:0 clamp(20px,5vw,84px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.mark{display:flex;align-items:center;gap:11px;font-size:12px;font-weight:800;letter-spacing:.1em}.mark-icon{width:31px;height:31px;border:2px solid var(--ink);display:grid;place-items:center;transform:rotate(45deg)}.mark-icon i{width:10px;height:10px;background:var(--green);display:block}.back{font:11px "DM Mono",monospace;padding:10px 12px;border:1px solid var(--ink);transition:.2s}.back:hover{background:var(--ink);color:var(--paper)}
+      .hero{padding:clamp(54px,8vw,112px) clamp(20px,8vw,128px) 75px;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(30px,7vw,112px);align-items:center}.eyebrow{margin:0 0 18px;color:var(--navy);font:11px "DM Mono",monospace;letter-spacing:.12em}h1{margin:0;font-size:clamp(48px,6.7vw,94px);line-height:.93;letter-spacing:-.04em;max-width:820px}.lede{max-width:690px;margin:30px 0 0;font-size:18px;line-height:1.7;color:#3b5055}.cover{aspect-ratio:1;display:grid;place-items:center;background:#fff;border:1px solid var(--ink);overflow:hidden}.cover img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;transform:none}
+      .facts{padding:0 clamp(20px,8vw,128px) 92px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}.fact{padding:19px 20px 4px 0}.fact b{display:block;font-size:20px;line-height:1.15;letter-spacing:-.04em}.fact span{display:block;margin-top:6px;font:9px "DM Mono",monospace;color:var(--muted);letter-spacing:.07em}
+      .section{padding:88px clamp(20px,8vw,128px)}.section-dark{background:var(--ink);color:var(--paper)}.overview{display:grid;grid-template-columns:.74fr 1.26fr;gap:clamp(35px,9vw,150px);border-top:1px solid var(--ink);padding-top:31px}.section-title{font-size:clamp(34px,4.6vw,60px);line-height:.97;letter-spacing:-.055em;margin:0}.body-copy{margin:0;max-width:790px;color:#3b5055;font-size:17px;line-height:1.76}.body-copy+.body-copy{margin-top:18px}.external-link{display:inline-flex;align-items:center;margin-top:24px;padding:12px 14px;border:1px solid var(--ink);font:10px "DM Mono",monospace;transition:.2s}.external-link:hover{background:var(--ink);color:var(--paper)}
+      .vehicle-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(35px,7vw,110px);align-items:center}.vehicle-copy p:last-child{margin:22px 0 0;color:#c5d1d3;font-size:16px;line-height:1.72}.vehicle-image{margin:0;border:1px solid rgba(244,241,233,.35);background:#fff;overflow:hidden}.vehicle-image img{display:block;width:100%;height:auto;object-fit:contain}.transition{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(244,241,233,.35);border-left:1px solid rgba(244,241,233,.35);margin-top:42px}.transition-step{padding:22px;min-height:185px;border-right:1px solid rgba(244,241,233,.35);border-bottom:1px solid rgba(244,241,233,.35)}.transition-step span{font:10px "DM Mono",monospace;color:var(--blue)}.transition-step h3{margin:32px 0 10px;font-size:19px}.transition-step p{margin:0;color:#c5d1d3;font-size:12px;line-height:1.6}
+      .lead-head{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(35px,8vw,130px);align-items:end}.lead-head p{margin:0;color:#3b5055;font-size:16px;line-height:1.72}.leadership-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink);margin-top:42px}.lead-item{padding:25px;min-height:285px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}.lead-item:nth-child(2),.lead-item:nth-child(5){background:#d8e8f6}.lead-item:nth-child(3){background:#d8edd0}.lead-item span{font:10px "DM Mono",monospace;color:var(--navy)}.lead-item h3{margin:42px 0 12px;font-size:21px;letter-spacing:-.04em}.lead-item p{margin:0;color:#3b5055;font-size:13px;line-height:1.67}
+      .scope-intro{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(35px,8vw,130px);align-items:end}.scope-intro p{margin:0;color:#c5d1d3;font-size:16px;line-height:1.72}.scope-map{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(244,241,233,.35);border-left:1px solid rgba(244,241,233,.35);margin-top:42px}.scope-card{padding:23px;min-height:230px;border-right:1px solid rgba(244,241,233,.35);border-bottom:1px solid rgba(244,241,233,.35)}.scope-card span{font:10px "DM Mono",monospace;color:var(--blue)}.scope-card h3{margin:38px 0 11px;font-size:18px}.scope-card p{margin:0;color:#c5d1d3;font-size:12px;line-height:1.62}
+      .scope-details{display:grid;gap:82px}.scope-detail{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,7vw,110px);align-items:center}.scope-detail:nth-child(even) .scope-visual{order:2}.scope-copy .scope-number{font:10px "DM Mono",monospace;color:var(--navy);letter-spacing:.1em}.scope-copy h2{margin:14px 0 19px;font-size:clamp(32px,4.3vw,55px);line-height:.98;letter-spacing:-.055em}.scope-copy p{margin:0;color:#3b5055;font-size:16px;line-height:1.73}.scope-copy p+p{margin-top:16px}.scope-callouts{display:flex;gap:8px;flex-wrap:wrap;margin-top:23px}.scope-callout{padding:10px 12px;border:1px solid var(--line);font:10px "DM Mono",monospace;background:rgba(255,255,255,.32)}.scope-visual{min-height:410px;border:1px solid var(--ink);display:grid;place-items:center;overflow:hidden;background:#fff}.scope-visual img{display:block;width:100%;height:100%;max-height:520px;object-fit:contain;object-position:center}.scope-visual-dark{background:#050505}.scope-visual-blue{background:#e8eef4}
+      .battery-visual{padding:38px;background:var(--navy);color:var(--paper);align-content:center}.battery-load{font-size:clamp(68px,9vw,120px);font-weight:800;line-height:.85;letter-spacing:-.075em;color:var(--green)}.battery-load small{display:block;margin-top:18px;color:var(--paper);font:11px "DM Mono",monospace;letter-spacing:.1em}.battery-diagram{margin-top:36px;position:relative;height:110px;border:2px solid rgba(244,241,233,.6);border-top:0}.battery-diagram:before{content:"LOW-VOLTAGE BATTERY";position:absolute;left:8%;right:8%;top:-42px;height:55px;background:var(--paper);color:var(--ink);display:grid;place-items:center;font:10px "DM Mono",monospace}.battery-diagram:after{content:"FIREWALL / BATTERY BOX";position:absolute;left:0;right:0;bottom:15px;border-top:1px solid rgba(244,241,233,.55);padding-top:12px;text-align:center;font:9px "DM Mono",monospace;color:#c5d1d3}
+      .thermal-visual{padding:34px;background:#e8eef4;align-content:center}.thermal-phase{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}.thermal-phase+.thermal-phase{margin-top:28px;padding-top:28px;border-top:1px solid var(--line)}.thermal-no{width:48px;height:48px;border:1px solid var(--ink);display:grid;place-items:center;font:11px "DM Mono",monospace;background:var(--green)}.thermal-phase b{font-size:18px}.thermal-phase p{margin:7px 0 0;color:#3b5055;font-size:13px;line-height:1.6}
+      .tools-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(35px,9vw,150px);align-items:start}.tools-copy{margin:20px 0 0;color:#c5d1d3;font-size:16px;line-height:1.72}.tools{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(244,241,233,.36);border-left:1px solid rgba(244,241,233,.36)}.tool{padding:23px;border-right:1px solid rgba(244,241,233,.36);border-bottom:1px solid rgba(244,241,233,.36)}.tool b{font-size:16px}.tool span{display:block;margin-top:8px;color:#c5d1d3;font-size:12px;line-height:1.55}
+      @media(max-width:850px){.hero,.overview,.vehicle-layout,.lead-head,.scope-intro,.scope-detail,.tools-layout{grid-template-columns:1fr}.cover{max-width:520px}.facts{grid-template-columns:1fr 1fr;padding-bottom:62px}.leadership-grid,.scope-map,.transition,.tools{grid-template-columns:1fr 1fr}.scope-detail:nth-child(even) .scope-visual{order:0}.section{padding-top:64px;padding-bottom:64px}.mark{font-size:10px}.back{font-size:9px}}
+      @media(max-width:520px){.leadership-grid,.scope-map,.transition,.tools{grid-template-columns:1fr}.scope-visual{min-height:320px}}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="mark" href="index.html"><span class="mark-icon"><i></i></span> HESSEM GUTIERREZ <span class="mono" style="font-weight:400">/ ME</span></a>
+      <a class="back" href="index.html#work">← BACK TO WORK</a>
+    </nav>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">PROVE LAB / CAL POLY</p>
+          <h1>Mechanical Leadership<br>for Mila</h1>
+          <p class="lede">As Mechanical Subsystem Lead for PROVE Lab, I lead a 35-member team responsible for integrating the mechanical systems that will convert Mila into an autonomous electric vehicle.</p>
+        </div>
+        <div class="cover"><img src="prove-logo.png" alt="PROVE Lab logo" /></div>
+      </section>
+
+      <div class="facts">
+        <div class="fact"><b>35 members</b><span>MECHANICAL TEAM</span></div>
+        <div class="fact"><b>4 scopes</b><span>TECHNICAL OWNERSHIP</span></div>
+        <div class="fact"><b>$5,000</b><span>SUBSYSTEM BUDGET</span></div>
+        <div class="fact"><b>Mila</b><span>AUTONOMOUS EV PLATFORM</span></div>
+      </div>
+
+      <section class="section">
+        <div class="overview">
+          <div><p class="eyebrow">THE TEAM</p><h2 class="section-title">Building an<br>autonomous vehicle</h2></div>
+          <div>
+            <p class="body-copy">PROVE is a multidisciplinary, student-led team at Cal Poly focused on designing, developing, testing, and building autonomous vehicles. Our current vehicle is Mila, an electric platform designed to support the sensing, actuation, controls, and computing systems required for autonomous operation.</p>
+            <p class="body-copy">Mila's core electric-vehicle architecture is complete, which shifts the team's work toward autonomy integration. The next stage requires each subsystem to move beyond functioning independently and operate as one coordinated vehicle, with mechanical hardware, electrical systems, embedded control, perception, and software all working together.</p>
+            <a class="external-link" href="https://provelab.org/" target="_blank" rel="noreferrer">LEARN MORE ABOUT PROVE ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="vehicle-layout">
+          <div class="vehicle-copy"><p class="eyebrow">THE PLATFORM</p><h2 class="section-title">Mila's transition<br>to autonomy</h2><p>The vehicle provides the mechanical and electrical foundation. Our current challenge is adding the sensors, autonomous steering and braking, structural hardware, and validated simulation work needed to make autonomous testing possible.</p></div>
+          <figure class="vehicle-image"><img src="prove-mila.png" alt="Mila, PROVE Lab's electric vehicle platform" /></figure>
+        </div>
+        <div class="transition">
+          <article class="transition-step"><span>01</span><h3>Vehicle foundation</h3><p>Complete the electric-vehicle architecture and preserve safe, reliable manual operation.</p></article>
+          <article class="transition-step"><span>02</span><h3>Autonomy integration</h3><p>Add perception hardware, actuation, structural mounts, control interfaces, and supporting simulations.</p></article>
+          <article class="transition-step"><span>03</span><h3>System validation</h3><p>Test each subsystem independently and then verify coordinated vehicle-level performance.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="lead-head">
+          <div><p class="eyebrow">MY POSITION</p><h2 class="section-title">Mechanical<br>Subsystem Lead</h2></div>
+          <p>I am responsible for giving the mechanical team a clear technical direction while keeping four scopes aligned with the vehicle-level autonomy architecture. The role combines engineering decisions, project ownership, resource management, and day-to-day mentorship.</p>
+        </div>
+        <div class="leadership-grid">
+          <article class="lead-item"><span>01 / TEAM LEADERSHIP</span><h3>Lead across four scopes</h3><p>I lead 35 mechanical team members across Structures &amp; Fabrication, Vehicle Controls, Sensor Integration, and Vehicle Power &amp; Simulation. I work with scope leads to establish priorities, remove blockers, and ensure each project supports the same vehicle-level objectives.</p></article>
+          <article class="lead-item"><span>02 / SYSTEM DEFINITION</span><h3>Translate autonomy into requirements</h3><p>I define system-level mechanical requirements and evaluate autonomy-enabling hardware, including powered steering motors and ABS-capable electro-hydraulic braking systems. Decisions consider packaging, vehicle integration, performance, safety, and control requirements.</p></article>
+          <article class="lead-item"><span>03 / TECHNICAL OVERSIGHT</span><h3>Guide design and validation</h3><p>I oversee mechanical design, structural analysis, fabrication, sensor-hardware integration, and vehicle simulation. This requires reviewing work across SolidWorks, ANSYS, MATLAB, and Simulink while helping teams connect detailed analysis back to physical vehicle behavior.</p></article>
+          <article class="lead-item"><span>04 / PROGRAM EXECUTION</span><h3>Manage budget and dependencies</h3><p>I manage a $5,000 subsystem budget and coordinate schedules, technical requirements, resource allocation, and cross-subsystem dependencies with project managers and engineering leads. The goal is to spend deliberately and keep critical integration work moving.</p></article>
+          <article class="lead-item"><span>05 / ENGINEERING PROCESS</span><h3>Create ownership and follow-through</h3><p>I facilitate technical meetings and design reviews, assign project ownership, track progress, and provide technical guidance across concurrent projects. I focus on giving each project a clear owner, measurable next steps, and a defined connection to the full vehicle.</p></article>
+          <article class="lead-item"><span>06 / INTEGRATION</span><h3>Keep the vehicle connected</h3><p>I help the mechanical scopes coordinate with software, electrical, controls, and project leadership so sensor locations, actuator interfaces, structural hardware, simulations, and testing plans develop as one integrated autonomy system.</p></article>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="scope-intro">
+          <div><p class="eyebrow">MECHANICAL ORGANIZATION</p><h2 class="section-title">Four scopes<br>one vehicle</h2></div>
+          <p>Each scope owns a different part of the mechanical autonomy problem, but the work is tightly connected. Sensor placement affects structures, actuator selection affects controls and packaging, and simulation determines whether the complete vehicle can operate safely under load.</p>
+        </div>
+        <div class="scope-map">
+          <article class="scope-card"><span>01</span><h3>Sensor Integration</h3><p>Integrates LiDAR, cameras, and related perception hardware with the vehicle while preserving useful fields of view and coordinate alignment.</p></article>
+          <article class="scope-card"><span>02</span><h3>Vehicle Controls</h3><p>Develops the steering and braking hardware that allows software commands to control the physical vehicle.</p></article>
+          <article class="scope-card"><span>03</span><h3>Structures &amp; Fabrication</h3><p>Designs high-load mounts for components exceeding 50 lbf and manufactures vehicle hardware using the manual mill, lathe, welding, and other shop processes.</p></article>
+          <article class="scope-card"><span>04</span><h3>Vehicle Power &amp; Simulation</h3><p>Owns thermal and vehicle-dynamics simulations, CAD management, and analysis supporting the vehicle's major systems.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="scope-details">
+          <article class="scope-detail">
+            <div class="scope-visual scope-visual-dark"><img src="prove-lidar.png" alt="LiDAR sensor evaluated for placement on Mila" /></div>
+            <div class="scope-copy"><span class="scope-number">SCOPE 01 / SENSOR INTEGRATION</span><h2>Sensor placement study</h2><p>The Sensor Integration scope is studying where Mila's LiDAR and cameras should be mounted and how each device should be oriented relative to its own coordinate system. Placement must support the required field of view while accounting for vehicle geometry, occlusion, mounting stiffness, serviceability, and cable routing.</p><p>The goal is not simply to attach the sensors to the car. The study creates a mechanical placement strategy that gives the perception and software teams consistent, well-defined sensor positions for calibration and vehicle localization.</p><div class="scope-callouts"><span class="scope-callout">LIDAR</span><span class="scope-callout">CAMERAS</span><span class="scope-callout">COORDINATE FRAMES</span><span class="scope-callout">FIELD OF VIEW</span></div></div>
+          </article>
+
+          <article class="scope-detail">
+            <div class="scope-visual scope-visual-blue"><img src="prove-steering-actuator.png" alt="Electric steering actuator evaluated for autonomous control" /></div>
+            <div class="scope-copy"><span class="scope-number">SCOPE 02 / VEHICLE CONTROLS</span><h2>Autonomous steering and braking</h2><p>The Vehicle Controls scope is configuring Mila's steering and braking systems for autonomous control. The selected actuators must generate the required performance, package into the existing vehicle, and interface cleanly with the broader software and electrical architecture.</p><p>CAN bus control is a primary constraint because the steering and braking hardware must accept commands, report state, and support dependable system integration. Current evaluation includes powered steering motors and ABS-capable electro-hydraulic braking approaches.</p><div class="scope-callouts"><span class="scope-callout">CAN BUS</span><span class="scope-callout">POWERED STEERING</span><span class="scope-callout">ELECTRO-HYDRAULIC BRAKING</span></div></div>
+          </article>
+
+          <article class="scope-detail">
+            <div class="scope-visual battery-visual"><div class="battery-load">80 lbf<small>SUSPENDED LOW-VOLTAGE BATTERY</small></div><div class="battery-diagram"></div></div>
+            <div class="scope-copy"><span class="scope-number">SCOPE 03 / STRUCTURES &amp; FABRICATION</span><h2>Low-voltage battery mount</h2><p>The Structures &amp; Fabrication scope is developing a structural mount for the roughly 80 lbf low-voltage battery. The battery is suspended above the battery box behind the firewall, making packaging, support, and load transfer central to the design.</p><p>The mount must carry the battery's static weight and withstand the dynamic loads produced as the vehicle corners and changes direction. The project combines CAD, structural analysis, design review, and manufacturability so the final assembly can be produced and installed using the team's mill, lathe, and welding capabilities.</p><div class="scope-callouts"><span class="scope-callout">STATIC LOAD</span><span class="scope-callout">CORNERING LOADS</span><span class="scope-callout">STRUCTURAL ANALYSIS</span><span class="scope-callout">FABRICATION</span></div></div>
+          </article>
+
+          <article class="scope-detail">
+            <div class="scope-visual thermal-visual"><div><div class="thermal-phase"><span class="thermal-no">01</span><div><b>Motor model</b><p>Model the DC motor system and establish its heat generation and operating conditions.</p></div></div><div class="thermal-phase"><span class="thermal-no">02</span><div><b>Full thermal system</b><p>Evaluate the radiator, pump, and cooling loop against the predicted heat load.</p></div></div></div></div>
+            <div class="scope-copy"><span class="scope-number">SCOPE 04 / VEHICLE POWER &amp; SIMULATION</span><h2>Cooling-system validation</h2><p>Mila's current cooling system is a prototype that requires extensive validation before demanding vehicle testing. The immediate objective is to determine whether the system can prevent the DC motor from overheating under the operating conditions expected during development.</p><p>The work is divided into two phases. The team first models the motor system to understand its thermal behavior and heat load. That result then feeds a full thermodynamic model used to determine whether the radiator and pump system can reject enough heat for safe operation.</p><div class="scope-callouts"><span class="scope-callout">MOTOR THERMAL MODEL</span><span class="scope-callout">RADIATOR</span><span class="scope-callout">PUMP</span><span class="scope-callout">HEAT REJECTION</span></div></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="tools-layout">
+          <div><p class="eyebrow">TOOLS &amp; SYSTEMS</p><h2 class="section-title">The tools<br>I use</h2><p class="tools-copy">My role requires both technical depth and enough range to review work across design, simulation, controls, data processing, and project coordination.</p></div>
+          <div class="tools">
+            <div class="tool"><b>SolidWorks</b><span>Vehicle CAD, mechanical packaging, structural mounts, assemblies, interfaces, and design-review support.</span></div>
+            <div class="tool"><b>MATLAB</b><span>Engineering calculations, data analysis, and support for vehicle and subsystem modeling.</span></div>
+            <div class="tool"><b>Simulink</b><span>Control-system and vehicle-system simulation supporting autonomy integration.</span></div>
+            <div class="tool"><b>ANSYS</b><span>Structural and thermal analysis used to evaluate mechanical designs and operating conditions.</span></div>
+            <div class="tool"><b>Python</b><span>Technical scripting, analysis, automation, and data-processing support across team projects.</span></div>
+            <div class="tool"><b>Microsoft Suite</b><span>Planning, budgets, schedules, technical documentation, presentations, and team coordination.</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

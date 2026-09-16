@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mechanical engineering portfolio of Hessem Gutierrez." />
+    <title>Hessem Gutierrez — Mechanical Engineer</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+      :root { --ink:#112222; --muted:#607170; --paper:#f4f1e9; --soft:#e6e4dc; --aqua:#a8ded1; --mint:#cae9bd; --orange:#f06137; --line:rgba(17,34,34,.17); }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; color:var(--ink); background:var(--paper); font-family:Manrope,Arial,sans-serif; overflow-x:hidden; }
+      body::before { content:""; position:fixed; inset:0; opacity:.36; z-index:-1; pointer-events:none; background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size:36px 36px; mask-image:linear-gradient(to bottom,black,transparent 79%); }
+      a { color:inherit; text-decoration:none; }
+      .mono { font-family:"DM Mono",monospace; letter-spacing:.04em; }
+      nav { height:77px; padding:0 clamp(20px,5vw,84px); display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+      .mark { display:flex; align-items:center; gap:11px; font-size:12px; font-weight:800; letter-spacing:.1em; }
+      .mark-icon { width:31px; height:31px; border:2px solid var(--ink); display:grid; place-items:center; transform:rotate(45deg); }
+      .mark-icon i { width:10px; height:10px; background:var(--orange); display:block; }
+      .nav-links { display:flex; gap:clamp(18px,3vw,46px); font:11px "DM Mono",monospace; }
+      .nav-links a { position:relative; }
+      .nav-links a::after { content:""; position:absolute; left:0; bottom:-5px; height:1px; width:0; background:var(--orange); transition:.25s; }
+      .nav-links a:hover::after { width:100%; }
+      .status { font:10px "DM Mono",monospace; color:var(--muted); display:flex; align-items:center; gap:7px; }
+      .status b { height:7px; width:7px; border-radius:50%; background:#49a278; box-shadow:0 0 0 3px rgba(73,162,120,.15); }
+      .hero { min-height:670px; padding:clamp(52px,10vw,138px) clamp(20px,8vw,128px) 78px; display:grid; grid-template-columns:1fr minmax(270px,370px); gap:30px; position:relative; }
+      .eyebrow { margin:0 0 21px; color:var(--orange); font:11px "DM Mono",monospace; letter-spacing:.13em; }
+      h1 { font-size:clamp(48px,6.8vw,96px); letter-spacing:0; line-height:.94; max-width:850px; margin:0; font-weight:800; }
+      h1 em { font-style:normal; color:var(--orange); }
+      .intro { max-width:570px; margin:37px 0 31px; color:#3c514f; font-size:17px; line-height:1.7; }
+      .button { display:inline-flex; align-items:center; gap:14px; padding:14px 18px; border:1px solid var(--ink); background:var(--ink); color:var(--paper); font:11px "DM Mono",monospace; transition:.25s; }
+      .button:hover { background:var(--orange); border-color:var(--orange); transform:translateY(-3px); }
+      .button span { font-size:19px; line-height:8px; }
+      .hero-side { align-self:end; position:relative; min-height:390px; border:1px solid var(--ink); background:#dfe7d9; overflow:hidden; }
+      .hero-photo { width:100%; height:100%; position:absolute; inset:0; display:block; object-fit:cover; object-position:center 37%; filter:saturate(.9) contrast(1.04); }
+      section { padding:110px clamp(20px,8vw,128px); }
+      .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:43px; }
+      .section-num { font:11px "DM Mono",monospace; color:var(--orange); } h2 { margin:8px 0 0; font-size:clamp(35px,5vw,62px); letter-spacing:-.06em; line-height:.95; }
+      .filters { display:flex; flex-wrap:wrap; gap:8px; }
+      .filter { border:1px solid var(--line); background:transparent; font:10px "DM Mono",monospace; padding:9px 12px; cursor:pointer; color:var(--muted); transition:.2s; }
+      .filter.active,.filter:hover { color:var(--paper); border-color:var(--ink); background:var(--ink); }
+      .projects { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--ink); border-left:1px solid var(--ink); }
+      .project { min-height:342px; padding:20px; border-right:1px solid var(--ink); border-bottom:1px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; transition:background .25s, color .25s, transform .25s; cursor:pointer; position:relative; overflow:hidden; }
+      .project.hidden { display:none; }.projects.is-empty {display:none}.empty-state{display:none;padding:37px 20px;border:1px solid var(--ink);font:13px "DM Mono",monospace;color:var(--muted)}.empty-state.visible{display:block}.project:hover,.project.selected { background:var(--ink); color:var(--paper); }
+      .project:hover .project-logo,.project.selected .project-logo{transform:translateY(-3px)}
+      .project-top { display:flex; justify-content:space-between; font:10px "DM Mono",monospace; }.project-title{font-size:25px; letter-spacing:-.05em; font-weight:700; max-width:230px; margin:0; line-height:1.05}.project-title small{font:10px "DM Mono",monospace; letter-spacing:0; display:block; color:inherit; opacity:.62; margin-top:11px;}
+      .project-status{display:inline-flex;align-items:center;gap:7px;color:var(--orange)}.project-status i{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(240,97,55,.14)}
+      .project-progress:after{content:"DEVELOPMENT UNDERWAY";position:absolute;right:20px;bottom:20px;font:8px "DM Mono",monospace;letter-spacing:.08em;color:var(--orange);writing-mode:vertical-rl}
+      .project-art { width:150px; height:105px; margin:0 auto 5px; transition:.4s cubic-bezier(.2,.9,.25,1); position:relative; }
+      .project-logo { width:180px; height:180px; display:grid; place-items:center; overflow:visible; background:transparent; border:0; padding:0; }
+      .project-logo img { display:block; width:100%; height:100%; object-fit:contain; object-position:center; transform:none; }
+      .project-logo-boeing { width:180px; height:180px; }
+      .project-logo-wide { width:min(100%,270px); height:170px; }
+      .art-wheel { border:17px solid var(--aqua); border-radius:50%; width:100px; height:100px; position:absolute; left:25px; top:0; box-shadow:inset 0 0 0 2px var(--ink); }.art-wheel:after{content:""; position:absolute; inset:22px; background:var(--orange); border-radius:50%; box-shadow:0 0 0 13px var(--ink)}
+      .art-arm { width:132px;height:24px;background:var(--orange); position:absolute; top:40px; left:8px; transform:rotate(-25deg); border:2px solid var(--ink); }.art-arm:before,.art-arm:after{content:"";width:38px;height:38px;border-radius:50%;background:var(--aqua);border:2px solid var(--ink);position:absolute;top:-9px}.art-arm:before{left:-9px}.art-arm:after{right:-9px}
+      .art-frame { width:122px;height:80px;border:12px solid var(--mint);border-top-width:24px;position:absolute;left:14px;top:10px;transform:skew(-15deg);}.art-frame:after{content:""; position:absolute;width:80px;border-top:2px solid var(--orange);top:21px;left:10px;transform:rotate(31deg)}
+      .process { background:var(--ink); color:var(--paper); padding-top:90px; padding-bottom:90px; }
+      .process .section-num { color:var(--aqua); }.process-grid { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid rgba(244,241,233,.35); }
+      .step { padding:25px 25px 22px 0; min-height:230px; border-bottom:1px solid rgba(244,241,233,.35); position:relative; }.step:not(:last-child):after{content:""; position:absolute; width:12px; height:12px; border-top:1px solid var(--aqua); border-right:1px solid var(--aqua); top:43px; right:10px; transform:rotate(45deg);}.step-no{font:11px "DM Mono",monospace;color:var(--aqua)}.step h3{font-size:21px;letter-spacing:-.04em;margin:44px 0 10px}.step p{font-size:13px;line-height:1.6;color:#b7c6c4;max-width:190px;margin:0}
+      .about { display:grid; grid-template-columns:.92fr 1.08fr; gap:clamp(35px,9vw,160px); }.about-personal{grid-template-columns:.72fr .78fr 1fr;gap:clamp(28px,5vw,80px);align-items:start}.about-photo{margin:0;border:1px solid var(--ink);background:#dce6d6;overflow:hidden}.about-photo img{display:block;width:100%;height:auto;object-fit:contain}.about-story{align-self:center}.about-copy { font-size:19px; line-height:1.68; color:#38504d; margin:0; }.personal-note{margin:16px 0 0;font:10px "DM Mono",monospace;color:var(--muted);letter-spacing:.06em}.interests{display:flex;flex-wrap:wrap;gap:9px;margin-top:27px}.interest{padding:11px 13px;border:1px solid var(--line);font:10px "DM Mono",monospace;background:rgba(255,255,255,.28)}.interest:nth-child(2),.interest:nth-child(5){background:var(--aqua)}.interest:nth-child(3){background:var(--mint)}.skill-group+.skill-group{margin-top:29px}.skill-group-title{margin:0 0 11px;font:10px "DM Mono",monospace;color:var(--orange);letter-spacing:.08em}.skills{display:flex;flex-wrap:wrap;gap:9px;align-content:start}.skill{padding:13px 15px;border:1px solid var(--line);font:11px "DM Mono",monospace;background:rgba(255,255,255,.2)}.skill:nth-child(3n){background:var(--aqua)}.skill:nth-child(4n){background:var(--mint)}
+      footer { padding:76px clamp(20px,8vw,128px) 26px; border-top:1px solid var(--ink); }.contact-title{font-size:clamp(45px,7.4vw,106px);letter-spacing:-.075em;line-height:.9;margin:0 0 41px}.contact-title a{color:var(--orange);text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px}.footer-bottom{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font:10px "DM Mono",monospace;color:var(--muted)}.footer-bottom a{text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}.footer-bottom a:hover{color:var(--orange)}
+      @media(max-width:760px){.nav-links{display:none}.hero{grid-template-columns:1fr;min-height:0}.hero-side{min-height:280px;max-width:410px}.projects{grid-template-columns:1fr}.project{min-height:265px}.process-grid{grid-template-columns:1fr 1fr}.step:nth-child(2):after{display:none}.about{grid-template-columns:1fr}section{padding-top:78px;padding-bottom:78px}.section-head{align-items:start;flex-direction:column}.footer-bottom{gap:15px;flex-direction:column}.status{display:none}}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="mark" href="#top"><span class="mark-icon"><i></i></span> HESSEM GUTIERREZ <span class="mono" style="font-weight:400">/ ME</span></a>
+      <div class="nav-links"><a href="#work">WORK</a><a href="#process">PROCESS</a><a href="#about">ABOUT</a><a href="#skills">SKILLS</a></div>
+      <span class="status"><b></b> OPEN TO 2027 OPPORTUNITIES</span>
+    </nav>
+    <main id="top">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">MECHANICAL ENGINEER · MECHATRONICS</p>
+          <h1>Engineering<br>for <em>intelligent</em><br>systems</h1>
+          <p class="intro">I am a Mechanical Engineering student attending Cal Poly SLO with a concentration in mechatronics. I focus on robotics, autonomous systems, control systems, and simulation-verified designs. My core tools include 3D CAD, Python, MATLAB, and Simulink.</p>
+          <a class="button" href="#work">EXPLORE SELECTED WORK <span>↘</span></a>
+        </div>
+        <aside class="hero-side" aria-label="Portrait of Hessem Gutierrez">
+          <img class="hero-photo" src="profile-photo.jpg" alt="Hessem Gutierrez wearing a PROVE Lab shirt" />
+        </aside>
+      </section>
+      <section id="work">
+        <div class="section-head"><div><span class="section-num">01 / EXPERIENCE &amp; WORK</span><h2>Engineering work,<br>organized your way</h2></div><div class="filters" aria-label="Browse work by category"><button class="filter active" data-filter="industry">INDUSTRY EXPERIENCE</button><button class="filter" data-filter="research">RESEARCH</button><button class="filter" data-filter="engineering-projects">ENGINEERING PROJECTS</button><button class="filter" data-filter="prove">PROVE</button></div></div>
+        <div class="projects" id="projects">
+          <a class="project" href="hoffman.html" data-categories="industry" aria-label="Read the Hoffman Construction case study"><div class="project-top"><span>HOFFMAN CONSTRUCTION</span><span>↗</span></div><div class="project-art project-logo"><img src="hoffman-logo-transparent.png" alt="Hoffman Construction logo" /></div><h3 class="project-title">EPIC Center<small>Project engineering · MEP coordination, RFIs &amp; commissioning</small></h3></a>
+          <a class="project hidden" href="la-metro.html" data-categories="research" aria-label="Read the LA Metro research case study"><div class="project-top"><span>LA METRO</span><span>↗</span></div><div class="project-art project-logo"><img src="la-metro-logo.png" alt="LA Metro logo" /></div><h3 class="project-title">Green Smart City<small>Urban mobility research · city planning &amp; physical modeling</small></h3></a>
+          <a class="project hidden" href="cavitation.html" data-categories="research" aria-label="Read the CFD cavitation research case study"><div class="project-top"><span>ONGOING RESEARCH</span><span>↗</span></div><div class="project-art project-logo project-logo-wide"><img src="cavitation-pressure.png" alt="OpenFOAM pressure field through a converging-diverging nozzle" /></div><h3 class="project-title">CFD Cavitation Research<small>OpenFOAM Venturi study · water-treatment applications</small></h3></a>
+          <a class="project" href="boeing.html" data-categories="industry" aria-label="Read the Boeing systems engineering case study"><div class="project-top"><span>BOEING</span><span>↗</span></div><div class="project-art project-logo project-logo-boeing"><img src="boeing-logo.png" alt="Boeing logo" /></div><h3 class="project-title">Martian Mining Architecture<small>Systems engineering internship · STK simulation</small></h3></a>
+          <article class="project project-progress hidden" data-categories="engineering-projects"><div class="project-top"><span class="project-status"><i></i>IN PROGRESS</span><span>↗</span></div><h3 class="project-title">Home NAS Server<small>Personal network storage platform · system architecture and hardware build underway</small></h3></article>
+          <article class="project project-progress hidden" data-categories="engineering-projects"><div class="project-top"><span class="project-status"><i></i>IN PROGRESS</span><span>↗</span></div><h3 class="project-title">FPV Drone<small>First-person-view flight platform · design, integration and testing underway</small></h3></article>
+          <article class="project project-progress hidden" data-categories="engineering-projects"><div class="project-top"><span class="project-status"><i></i>IN PROGRESS</span><span>↗</span></div><h3 class="project-title">Golf Putting Robot<small>Mechatronic putting system · mechanism and controls development underway</small></h3></article>
+          <article class="project project-progress hidden" data-categories="engineering-projects"><div class="project-top"><span class="project-status"><i></i>IN PROGRESS</span><span>↗</span></div><h3 class="project-title">Two-Wheel Robot Autonomy<small>Two-wheel mobile robot · sensing, controls and autonomy development underway</small></h3></article>
+          <a class="project hidden" href="prove.html" data-categories="prove" aria-label="Read the PROVE autonomous vehicle case study"><div class="project-top"><span>PROVE LAB</span><span>↗</span></div><div class="project-art project-logo"><img src="prove-logo.png" alt="PROVE Lab logo" /></div><h3 class="project-title">PROVE Autonomous EV<small>Mechanical Subsystem Lead · 35-member team across four scopes</small></h3></a>
+        </div>
+        <p class="empty-state" id="empty-state">No work has been added to this category yet.</p>
+      </section>
+      <section class="process" id="process"><div class="section-head"><div><span class="section-num">02 / HOW I WORK</span><h2>Curious by<br>design</h2></div></div><div class="process-grid"><div class="step"><span class="step-no">01</span><h3>Observe</h3><p>Find the constraints, listen for the unspoken needs, and define success.</p></div><div class="step"><span class="step-no">02</span><h3>Explore</h3><p>Sketch broadly, model quickly, and use analysis to challenge assumptions.</p></div><div class="step"><span class="step-no">03</span><h3>Make</h3><p>Prototype early with the materials and processes reality demands.</p></div><div class="step"><span class="step-no">04</span><h3>Refine</h3><p>Test against the brief, remove what is unnecessary, then scale with confidence.</p></div></div></section>
+      <section class="about" id="skills"><div><span class="section-num">03 / SKILLS &amp; TOOLS</span><h2>Tools I use<br>to get the job<br>done</h2></div><div><div class="skill-group"><p class="skill-group-title">CAD &amp; SIMULATION</p><div class="skills"><span class="skill">SOLIDWORKS</span><span class="skill">ONSHAPE</span><span class="skill">ANSYS</span><span class="skill">MATLAB</span><span class="skill">SIMULINK</span><span class="skill">OPENFOAM</span><span class="skill">STK</span><span class="skill">PYTHON</span></div></div><div class="skill-group"><p class="skill-group-title">FABRICATION &amp; PROTOTYPING</p><div class="skills"><span class="skill">MANUAL MILL</span><span class="skill">MANUAL LATHE</span><span class="skill">WELDING</span><span class="skill">ADDITIVE MANUFACTURING</span></div></div><div class="skill-group"><p class="skill-group-title">PROJECT TOOLS</p><div class="skills"><span class="skill">PROCORE</span><span class="skill">BLUEBEAM</span><span class="skill">SMARTSHEET</span><span class="skill">SCHEDULE TRACKING</span></div></div></div></section>
+      <section class="about about-personal" id="about"><div><span class="section-num">04 / ABOUT ME</span><h2>Something about<br>me!</h2></div><figure class="about-photo"><img src="about-hiking.jpg" alt="Hessem Gutierrez enjoying time outdoors" /></figure><div class="about-story"><p class="about-copy">Outside of engineering, I enjoy staying active, learning, and making time for interests that help me reset. I especially enjoy hiking, lifting weights, reading, running, and playing the piano.</p><p class="personal-note">OUTSIDE THE SHOP, LAB &amp; CLASSROOM</p><div class="interests"><span class="interest">HIKING</span><span class="interest">LIFTING WEIGHTS</span><span class="interest">READING</span><span class="interest">RUNNING</span><span class="interest">PIANO</span></div></div></section>
+    </main>
+    <footer><p class="eyebrow">LET'S CONNECT</p><p class="contact-title">Let's build<br>something <a href="mailto:hessem.gutierrez@gmail.com">useful</a></p><div class="footer-bottom"><span>© 2026 HESSEM GUTIERREZ</span><a href="https://www.linkedin.com/in/hessemgutierrez" target="_blank" rel="noreferrer">www.linkedin.com/in/hessemgutierrez</a><a href="mailto:hessem.gutierrez@gmail.com">hessem.gutierrez@gmail.com</a></div></footer>
+    <script>
+      const projects=document.getElementById('projects'),emptyState=document.getElementById('empty-state');
+      document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));button.classList.add('active');const value=button.dataset.filter;let count=0;document.querySelectorAll('.project').forEach(card=>{const hidden=!card.dataset.categories.split(' ').includes(value);card.classList.toggle('hidden',hidden);if(!hidden)count+=1});projects.classList.toggle('is-empty',count===0);emptyState.classList.toggle('visible',count===0)}));
+      document.querySelectorAll('.project').forEach(card=>card.addEventListener('click',()=>{document.querySelectorAll('.project').forEach(p=>p.classList.remove('selected'));card.classList.add('selected')}));
+    </script>
+  </body>
+</html>

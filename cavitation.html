@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Hessem Gutierrez's ongoing CFD research into cavitation inside a converging-diverging nozzle." />
+    <title>Venturi Cavitation CFD Research | Hessem Gutierrez</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+      :root{--ink:#102126;--muted:#5e7075;--paper:#f4f1e9;--blue:#4f73d9;--ice:#b9dff2;--aqua:#93d7cc;--orange:#f06137;--line:rgba(16,33,38,.18);--panel:#596079}
+      *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,Arial,sans-serif}body:before{content:"";position:fixed;inset:0;z-index:-1;opacity:.3;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(to bottom,black,transparent 82%)}a{color:inherit;text-decoration:none}.mono{font-family:"DM Mono",monospace;letter-spacing:.04em}
+      nav{height:77px;padding:0 clamp(20px,5vw,84px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.mark{display:flex;align-items:center;gap:11px;font-size:12px;font-weight:800;letter-spacing:.1em}.mark-icon{width:31px;height:31px;border:2px solid var(--ink);display:grid;place-items:center;transform:rotate(45deg)}.mark-icon i{width:10px;height:10px;background:var(--blue);display:block}.back{font:11px "DM Mono",monospace;padding:10px 12px;border:1px solid var(--ink);transition:.2s}.back:hover{background:var(--ink);color:var(--paper)}
+      .hero{padding:clamp(54px,8vw,112px) clamp(20px,8vw,128px) 75px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,92px);align-items:center}.eyebrow{margin:0 0 18px;color:var(--blue);font:11px "DM Mono",monospace;letter-spacing:.12em}h1{margin:0;font-size:clamp(48px,6.6vw,92px);line-height:.93;letter-spacing:-.04em;max-width:780px}.lede{max-width:690px;margin:30px 0 0;font-size:18px;line-height:1.7;color:#3a5055}.status-chip{display:inline-flex;align-items:center;gap:8px;margin-bottom:19px;padding:9px 12px;border:1px solid var(--ink);font:10px "DM Mono",monospace;background:var(--ice)}.status-chip i{width:8px;height:8px;border-radius:50%;background:var(--orange);animation:pulse 1.8s infinite}@keyframes pulse{50%{opacity:.35}}.cover{min-height:390px;display:grid;place-items:center;background:var(--panel);border:1px solid var(--ink);overflow:hidden}.cover img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;transform:none}
+      .facts{padding:0 clamp(20px,8vw,128px) 92px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}.fact{padding:19px 20px 4px 0}.fact b{display:block;font-size:20px;line-height:1.15;letter-spacing:-.04em}.fact span{display:block;margin-top:6px;font:9px "DM Mono",monospace;color:var(--muted);letter-spacing:.07em}
+      .section{padding:88px clamp(20px,8vw,128px)}.section-dark{background:var(--ink);color:var(--paper)}.overview{display:grid;grid-template-columns:.74fr 1.26fr;gap:clamp(35px,9vw,150px);border-top:1px solid var(--ink);padding-top:31px}.section-title{font-size:clamp(34px,4.6vw,60px);line-height:.97;letter-spacing:-.055em;margin:0}.body-copy{margin:0;max-width:790px;color:#3a5055;font-size:17px;line-height:1.76}.body-copy+.body-copy{margin-top:18px}
+      .foundation{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(35px,8vw,125px);align-items:start}.concepts{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(244,241,233,.35);border-left:1px solid rgba(244,241,233,.35)}.concept{padding:23px;border-right:1px solid rgba(244,241,233,.35);border-bottom:1px solid rgba(244,241,233,.35);min-height:145px}.concept b{display:block;font-size:15px}.concept span{display:block;margin-top:9px;color:#c4d1d2;font-size:12px;line-height:1.55}.paper{margin-top:24px;padding:23px;border:1px solid rgba(244,241,233,.35)}.paper span{font:9px "DM Mono",monospace;color:var(--ice);letter-spacing:.08em}.paper h3{margin:12px 0 9px;font-size:18px;line-height:1.25}.paper p{margin:0;color:#c4d1d2;font-size:13px;line-height:1.65}.paper a{display:inline-block;margin-top:15px;color:var(--ice);font:10px "DM Mono",monospace;text-decoration:underline;text-underline-offset:4px}
+      .geometry-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(35px,8vw,125px);align-items:end;margin-bottom:40px}.geometry-head p{margin:0;color:#3a5055;font-size:16px;line-height:1.72}.geometry-panel{border:1px solid var(--ink);background:#fff;padding:clamp(18px,3vw,38px)}.geometry-panel svg{display:block;width:100%;height:auto}.mesh-summary{display:grid;grid-template-columns:repeat(5,1fr);border-left:1px solid var(--ink);border-top:1px solid var(--ink);margin-top:24px}.mesh-block{padding:18px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);min-height:132px}.mesh-block span{font:9px "DM Mono",monospace;color:var(--blue)}.mesh-block b{display:block;margin-top:12px;font-size:15px}.mesh-block small{display:block;margin-top:6px;color:var(--muted);font:10px "DM Mono",monospace;line-height:1.5}.mesh-notes{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.mesh-note{padding:10px 12px;border:1px solid var(--line);font:10px "DM Mono",monospace;background:rgba(255,255,255,.28)}
+      .media-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,70px);align-items:start}.media-copy p:last-child{margin:22px 0 0;color:#3a5055;font-size:16px;line-height:1.73}.media-frame{margin:0;border:1px solid var(--ink);background:#fff;overflow:hidden;display:grid;place-items:center}.media-frame img{display:block;width:100%;height:auto;object-fit:contain}.finding{margin-top:22px;padding:20px;border-left:4px solid var(--blue);background:var(--ice)}.finding b{font-size:15px}.finding p{margin:7px 0 0;color:#3a5055;font-size:13px;line-height:1.6}
+      .animation-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(35px,7vw,110px);align-items:center}.animation-copy p:last-child{margin:22px 0 0;color:#c4d1d2;font-size:16px;line-height:1.72}.animation{margin:0;border:1px solid rgba(244,241,233,.35);background:var(--panel);overflow:hidden}.animation img{display:block;width:100%;height:auto;object-fit:contain}.quantities{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(244,241,233,.35);border-left:1px solid rgba(244,241,233,.35);margin-top:38px}.quantity{padding:20px;border-right:1px solid rgba(244,241,233,.35);border-bottom:1px solid rgba(244,241,233,.35)}.quantity b{font-size:14px}.quantity span{display:block;margin-top:8px;color:#c4d1d2;font-size:11px;line-height:1.5}
+      .next-head{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(35px,8vw,130px);align-items:end}.next-head p{margin:0;color:#3a5055;font-size:16px;line-height:1.72}.next-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink);margin-top:42px}.next-step{padding:24px;min-height:240px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}.next-step:nth-child(2){background:var(--ice)}.next-step:nth-child(3){background:var(--aqua)}.next-step:nth-child(4){background:#d9e6b7}.next-step span{font:10px "DM Mono",monospace;color:var(--blue)}.next-step h3{margin:42px 0 12px;font-size:20px;letter-spacing:-.04em}.next-step p{margin:0;color:#3a5055;font-size:13px;line-height:1.65}
+      .tool-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(35px,9vw,150px);align-items:start}.tool-copy{margin:20px 0 0;color:#c4d1d2;font-size:16px;line-height:1.72}.tools{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(244,241,233,.36);border-left:1px solid rgba(244,241,233,.36)}.tool{padding:23px;border-right:1px solid rgba(244,241,233,.36);border-bottom:1px solid rgba(244,241,233,.36)}.tool b{font-size:16px}.tool span{display:block;margin-top:8px;color:#c4d1d2;font-size:12px;line-height:1.55}
+      @media(max-width:850px){.hero,.overview,.foundation,.geometry-head,.media-layout,.animation-layout,.next-head,.tool-layout{grid-template-columns:1fr}.cover{min-height:260px}.facts{grid-template-columns:1fr 1fr;padding-bottom:62px}.mesh-summary,.next-grid,.quantities,.tools{grid-template-columns:1fr 1fr}.section{padding-top:64px;padding-bottom:64px}.mark{font-size:10px}.back{font-size:9px}}
+      @media(max-width:520px){.concepts,.mesh-summary,.next-grid,.quantities,.tools{grid-template-columns:1fr}.cover{min-height:210px}}
+      @media(prefers-reduced-motion:reduce){.status-chip i{animation:none}}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="mark" href="index.html"><span class="mark-icon"><i></i></span> HESSEM GUTIERREZ <span class="mono" style="font-weight:400">/ ME</span></a>
+      <a class="back" href="index.html#work">← BACK TO WORK</a>
+    </nav>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="status-chip"><i></i> ONGOING RESEARCH</div>
+          <p class="eyebrow">CFD / CAVITATION</p>
+          <h1>Venturi<br>Cavitation CFD</h1>
+          <p class="lede">I am developing an OpenFOAM case to analyze cavitation inside a converging-diverging nozzle and build toward evaluating how controlled cavitation could support water-treatment applications.</p>
+        </div>
+        <div class="cover"><img src="cavitation-pressure.png" alt="OpenFOAM pressure field through a converging-diverging nozzle" /></div>
+      </section>
+
+      <div class="facts">
+        <div class="fact"><b>In progress</b><span>RESEARCH STATUS</span></div>
+        <div class="fact"><b>OpenFOAM v2406</b><span>SIMULATION PLATFORM</span></div>
+        <div class="fact"><b>0.30–1.15 m/s</b><span>VELOCITY SWEEP</span></div>
+        <div class="fact"><b>Medium mesh</b><span>SELECTED MODEL</span></div>
+      </div>
+
+      <section class="section">
+        <div class="overview">
+          <div><p class="eyebrow">THE RESEARCH</p><h2 class="section-title">Building the case<br>from first principles</h2></div>
+          <div>
+            <p class="body-copy">The premise of this research is to develop a CFD case that captures cavitation behavior within a converging-diverging nozzle. The immediate work focuses on building a stable geometry, mesh, and pressure-based simulation that can be checked against experimental behavior before introducing additional variables.</p>
+            <p class="body-copy">The longer-term goal is to understand whether cavitation can be intentionally controlled and used as part of a water-treatment process. Because the project is still in progress, the current portfolio reflects the model-development and mesh-verification stages rather than presenting a completed water-purification result.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="foundation">
+          <div><p class="eyebrow">BACKGROUND RESEARCH</p><h2 class="section-title">From fluid mechanics<br>to cavitating flow</h2><p class="tool-copy">I began by returning to the core fluid-mechanics principles behind the case, then used scientific literature to identify the higher-level physics and numerical approach needed for cavitation modeling.</p></div>
+          <div>
+            <div class="concepts">
+              <div class="concept"><b>Pressure gradients</b><span>How acceleration through the contraction and throat produces the pressure drop that can initiate cavitation.</span></div>
+              <div class="concept"><b>Internal flow</b><span>How confined flow develops through the nozzle and responds to rapid changes in cross-sectional area.</span></div>
+              <div class="concept"><b>Boundary layers</b><span>How near-wall behavior and surface conditions influence losses, separation, and the local pressure field.</span></div>
+              <div class="concept"><b>Venturi geometry</b><span>How contraction, throat, and diffuser dimensions shape velocity recovery and cavitation behavior.</span></div>
+            </div>
+            <article class="paper">
+              <span>PRIMARY LITERATURE REFERENCE</span>
+              <h3>Experimental and numerical study of cavitation flows in venturi tubes: From CFD to an empirical model</h3>
+              <p>Hongbo Shi, Mingda Li, P A Nikrityuk, and Qingxia Liu. I used this study to guide the Venturi-based architecture and connect the developing numerical case to experimentally examined cavitation behavior.</p>
+              <a href="https://doi.org/10.1016/j.ces.2019.07.004" target="_blank" rel="noreferrer">VIEW DOI ↗</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="geometry-head">
+          <div><p class="eyebrow">GEOMETRY &amp; MESH</p><h2 class="section-title">The code made visual</h2></div>
+          <p>Using OpenFOAM's C++-style dictionary format, I defined the vertices, structured blocks, wedge boundaries, patch interfaces, and cell grading for an axisymmetric nozzle model. The diagram below condenses the medium-mesh `blockMeshDict` into its engineering intent.</p>
+        </div>
+        <div class="geometry-panel">
+          <svg viewBox="0 0 900 300" role="img" aria-label="Five-block structured wedge mesh for the converging-diverging nozzle">
+            <defs>
+              <pattern id="meshGrid" width="15" height="12" patternUnits="userSpaceOnUse"><path d="M 15 0 L 0 0 0 12" fill="none" stroke="#8fb4d1" stroke-width="0.8" /></pattern>
+              <clipPath id="domainClip"><path d="M40 80 L72 80 L146 160 L252 160 L538 80 L834 80 L834 210 L40 210 Z" /></clipPath>
+              <linearGradient id="domainFill" x1="0" x2="1"><stop offset="0" stop-color="#d7eaf4"/><stop offset=".35" stop-color="#8ebee2"/><stop offset="1" stop-color="#d7eaf4"/></linearGradient>
+            </defs>
+            <path d="M40 80 L72 80 L146 160 L252 160 L538 80 L834 80 L834 210 L40 210 Z" fill="url(#domainFill)" stroke="#102126" stroke-width="2" />
+            <rect x="40" y="70" width="794" height="150" fill="url(#meshGrid)" clip-path="url(#domainClip)" />
+            <g stroke="#102126" stroke-width="2"><line x1="72" y1="80" x2="72" y2="210"/><line x1="146" y1="160" x2="146" y2="210"/><line x1="252" y1="160" x2="252" y2="210"/><line x1="538" y1="80" x2="538" y2="210"/></g>
+            <line x1="40" y1="210" x2="834" y2="210" stroke="#f06137" stroke-width="3" />
+            <g font-family="DM Mono, monospace" font-size="11" fill="#102126" text-anchor="middle"><text x="56" y="55">B1</text><text x="109" y="55">B2</text><text x="199" y="145">B3</text><text x="395" y="55">B4</text><text x="686" y="55">B5</text></g>
+            <g font-family="DM Mono, monospace" font-size="10" fill="#5e7075" text-anchor="middle"><text x="56" y="242">0–6 mm</text><text x="109" y="242">6–20 mm</text><text x="199" y="242">20–40 mm</text><text x="395" y="242">40–94 mm</text><text x="686" y="242">94–150 mm</text></g>
+            <text x="842" y="214" font-family="DM Mono, monospace" font-size="10" fill="#f06137">AXIS</text>
+            <text x="40" y="280" font-family="DM Mono, monospace" font-size="10" fill="#5e7075">AXISYMMETRIC HALF-DOMAIN · DIMENSIONS FROM BLOCKMESH GEOMETRY</text>
+          </svg>
+          <div class="mesh-summary">
+            <div class="mesh-block"><span>BLOCK 01</span><b>Inlet</b><small>24 × 24 × 1<br>Uniform entry</small></div>
+            <div class="mesh-block"><span>BLOCK 02</span><b>Contraction</b><small>28 × 24 × 1<br>Area reduction</small></div>
+            <div class="mesh-block"><span>BLOCK 03</span><b>Throat</b><small>60 × 24 × 1<br>Low-pressure region</small></div>
+            <div class="mesh-block"><span>BLOCK 04</span><b>Diffuser</b><small>150 × 24 × 1<br>Pressure recovery</small></div>
+            <div class="mesh-block"><span>BLOCK 05</span><b>Outlet</b><small>120 × 24 × 1<br>Developed exit</small></div>
+          </div>
+          <div class="mesh-notes"><span class="mesh-note">382 × 24 × 1 CELLS</span><span class="mesh-note">SCALE 0.001</span><span class="mesh-note">WEDGE FRONT &amp; BACK</span><span class="mesh-note">WALL BOUNDARIES</span><span class="mesh-note">MERGED BLOCK INTERFACES</span><span class="mesh-note">GRADED CELL SPACING</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="media-layout">
+          <div class="media-copy"><p class="eyebrow">MESH CONVERGENCE</p><h2 class="section-title">Choosing the model<br>with purpose</h2><p>I compared coarse, medium, and fine meshes across inlet velocities from 0.30 to 1.15 m/s, using pressure difference as the convergence quantity and the experimental curve as the reference. The medium mesh provided the best balance between agreement and computational efficiency, so it became the working model represented by the geometry above.</p><div class="finding"><b>Selected direction</b><p>Continue the research with the medium mesh so that future roughness cases remain computationally manageable while preserving the established pressure trend.</p></div></div>
+          <figure class="media-frame"><img src="cavitation-mesh-convergence.png" alt="Pressure versus velocity mesh convergence comparison for experimental, coarse, medium, and fine cases" /></figure>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="animation-layout">
+          <div class="animation-copy"><p class="eyebrow">PARAVIEW VISUALIZATION</p><h2 class="section-title">Velocity changes<br>the pressure field</h2><p>The animation shows the simulated pressure field changing as inlet velocity increases. The strongest pressure reduction develops through the contraction and throat, which is the region of interest for determining when cavitation begins and how it evolves through the nozzle.</p></div>
+          <figure class="animation"><img src="cavitation-pressure-animation.gif" alt="Animated OpenFOAM pressure field as nozzle inlet velocity changes" /></figure>
+        </div>
+        <div class="quantities">
+          <div class="quantity"><b>Pressure</b><span>Tracks the drop through the throat and recovery through the diffuser.</span></div>
+          <div class="quantity"><b>Velocity</b><span>Defines the operating sweep and local acceleration through the geometry.</span></div>
+          <div class="quantity"><b>Kinematic viscosity</b><span>Supports the fluid-property definition and resulting flow behavior.</span></div>
+          <div class="quantity"><b>Vapor volume fraction</b><span>Provides the field needed to quantify where and how strongly cavitation occurs.</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="next-head">
+          <div><p class="eyebrow">NEXT STEPS</p><h2 class="section-title">From a smooth wall<br>to material selection</h2></div>
+          <p>The next research phase will test the validated working model under multiple wall-roughness cases. By extracting the water and vapor volume fractions, I will compare the amount and distribution of cavitation and determine whether surface roughness can be used to increase cavitation in a controlled way for future water-purification studies.</p>
+        </div>
+        <div class="next-grid">
+          <article class="next-step"><span>01</span><h3>Define roughness cases</h3><p>Create a controlled range of wall-roughness inputs while keeping the geometry, mesh strategy, and operating conditions consistent.</p></article>
+          <article class="next-step"><span>02</span><h3>Run comparable simulations</h3><p>Use the medium mesh for each case so changes in the solution can be tied to roughness rather than a changing discretization.</p></article>
+          <article class="next-step"><span>03</span><h3>Extract phase fractions</h3><p>Measure water and vapor volume fractions to quantify where cavitation develops and how its magnitude changes with surface condition.</p></article>
+          <article class="next-step"><span>04</span><h3>Connect to purification</h3><p>Use the roughness comparison to identify promising material or surface conditions for later water-treatment testing.</p></article>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="tool-layout">
+          <div><p class="eyebrow">TOOLS &amp; SYSTEMS</p><h2 class="section-title">The tools<br>I used</h2><p class="tool-copy">The research moves between solver setup, code editing, flow visualization, and data comparison as the model is developed and verified.</p></div>
+          <div class="tools">
+            <div class="tool"><b>OpenFOAM</b><span>Built and ran the CFD case from the command line, including geometry, mesh, boundary setup, and field calculations.</span></div>
+            <div class="tool"><b>VS Code</b><span>Modified OpenFOAM dictionaries and organized the code that defines the geometry, mesh, and simulation parameters.</span></div>
+            <div class="tool"><b>ParaView</b><span>Visualized the pressure field and reviewed how the solution changed across the velocity sweep.</span></div>
+            <div class="tool"><b>Excel</b><span>Consolidated simulation data, compared mesh sizes, and produced the pressure-versus-velocity convergence chart.</span></div>
+            <div class="tool"><b>Microsoft Suite</b><span>Supported literature notes, research documentation, and communication of the developing results.</span></div>
+            <div class="tool"><b>Scientific literature</b><span>Connected core fluid mechanics to established experimental and numerical work on Venturi cavitation.</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
